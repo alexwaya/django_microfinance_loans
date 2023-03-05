@@ -11,12 +11,12 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path("accounts/", include("django.contrib.auth.urls")),
     path('', include('pages.urls')),
-    # path('jobs/', include('jobs.urls')),
+    path('loans/', include('loans.urls')),
     # path('', include('userprofile.urls')),
     # path('notifications/', include('notification.urls')),
 
-    # path('logout/', views.LogoutView.as_view(), name='logout'),
-    # path('login/', views.LoginView.as_view(template_name='registration/login.html'), name='login'),
+    path('logout/', views.LogoutView.as_view(), name='logout'),
+    path('login/', views.LoginView.as_view(template_name='registration/login.html'), name='login'),
 
     # Change Password
     #path('change-password/', auth_views.PasswordChangeView.as_view(template_name='registration/change_password.html', success_url = '/'), name='change_password'),
