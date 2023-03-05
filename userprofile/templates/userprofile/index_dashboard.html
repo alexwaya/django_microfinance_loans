@@ -1,0 +1,111 @@
+{% extends "base_dashboard.html" %}
+{% load static %}
+{% block title %} Dashboard - JOB BOARD {% endblock %}
+
+{% block dashboard_content %}
+
+<main>
+    <div class="container-fluid px-4">
+        <h3 class="mt-4"></h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+                <li class="breadcrumb-item active">My Account</li>
+            </ol>
+        
+        <div class="card mb-4">           
+
+        {% if userprofile.is_employer %}
+
+        Is Employer
+
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                All Loans List
+            </div>
+
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>Loan Title</th>
+                                <th>Loan Description</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Loan Title</th>
+                                <th>Loan Description</th>
+                            </tr>
+                        </tfoot>
+
+                        <tbody>
+                            {% for loan in request.user.loans.all %}
+                            <tr>
+                                <td><a style="text-decoration: none;" href="">{{ loan.loan_title }}</a></td>
+                                <td>{{ loan.loan_description }}</td>
+                            {% empty %}
+                                    <p>You haven't listed any loans yet</p>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+        
+        {% else %}
+
+        Is job Seeker
+        <!-- <div class="card-header">
+            <i class="fas fa-table me-1"></i>
+            My Applications
+        </div>
+
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>Job Title</th>
+                                <th>Job Type</th>
+                                <th>Job Location</th>
+                                <th>Applied on</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Job Title</th>
+                                <th>Job Type</th>
+                                <th>Job Location</th>
+                                <th>Applied on</th>
+                                <th>Status</th>
+                            </tr>
+                        </tfoot>
+
+                        
+                        <tbody>
+                            {% for application in request.user.applications.all %}
+                            <tr>
+                                
+                                    <td><a style="text-decoration: none;" href="{% url 'view_application' application.id %}">{{ application.job.job_title }}</a></td>
+                                    <td>{{ application.job.job_type }}</td>
+                                    <td>{{ application.job.job_location }}</td>
+                                    <td>{{ application.job.created_at }}</td>
+                                    <td>Reviewing</td>
+                                {% empty %}
+                                    <p>You don't have any job applications yet</p>
+                                
+                            </tr>
+                            {% endfor %}
+                            
+                        </tbody>
+                        
+                    </table>
+                </div> -->
+
+        {% endif %}
+
+
+        </div>
+    </div>
+</main>
+
+{% endblock dashboard_content %}

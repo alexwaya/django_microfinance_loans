@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
+from userprofile.models import Userprofile
 
 def index_view(request):
     context = {}
@@ -14,18 +15,17 @@ def signup(request):
         if form.is_valid():
             user = form.save()
 
-    #         account_type = request.POST.get('account_type', 'jobseeker')
-    #         #account_type = request.POST.get('account_type')
+            account_type = request.POST.get('account_type', 'jobseeker')
 
-    #         if account_type == 'employer':
-    #             userprofile = Userprofile.objects.create(user=user, is_employer=True)
-    #             userprofile.save()
-    #         else:
-    #             userprofile = Userprofile.objects.create(user=user)
-    #             userprofile.save()
+            if account_type == 'employer':
+                userprofile = Userprofile.objects.create(user=user, is_employer=True)
+                userprofile.save()
+            else:
+                userprofile = Userprofile.objects.create(user=user)
+                userprofile.save()
 
             login(request, user)
-            return redirect('/')
+            return redirect('dashboard')
     else:
         form = UserCreationForm()
     context = {

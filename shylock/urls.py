@@ -12,7 +12,7 @@ urlpatterns = [
     #path("accounts/", include("django.contrib.auth.urls")),
     path('', include('pages.urls')),
     path('loans/', include('loans.urls')),
-    # path('', include('userprofile.urls')),
+    path('', include('userprofile.urls')),
     # path('notifications/', include('notification.urls')),
 
     path('logout/', views.LogoutView.as_view(), name='logout'),
