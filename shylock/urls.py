@@ -34,6 +34,6 @@ if settings.DEBUG:
               static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 
-admin.site.site_header = "Shylock Services"
+admin.site.site_header = "Shylock Services MVP"
 admin.site.site_title = "Admin"
-admin.site.index_title = "Shylock Services"
+admin.site.index_title = "Shylock Services MVP"

@@ -16,7 +16,7 @@
 
         {% if userprofile.is_employer %}
 
-        Is Employer
+        Is Admin
 
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -53,54 +53,43 @@
         
         {% else %}
 
-        Is job Seeker
-        <!-- <div class="card-header">
+        Is Applicant
+        <div class="card-header">
             <i class="fas fa-table me-1"></i>
             My Applications
         </div>
-
                 <div class="card-body">
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
-                                <th>Job Title</th>
-                                <th>Job Type</th>
-                                <th>Job Location</th>
-                                <th>Applied on</th>
+                                <th>Loan Title</th>
+                                <th>Loan Description</th>
+                                <th>Date Applied</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
-                                <th>Job Title</th>
-                                <th>Job Type</th>
-                                <th>Job Location</th>
-                                <th>Applied on</th>
+                                <th>Loan Title</th>
+                                <th>Loan Description</th>
+                                <th>Date Applied</th>
                                 <th>Status</th>
                             </tr>
                         </tfoot>
-
-                        
                         <tbody>
                             {% for application in request.user.applications.all %}
                             <tr>
-                                
-                                    <td><a style="text-decoration: none;" href="{% url 'view_application' application.id %}">{{ application.job.job_title }}</a></td>
-                                    <td>{{ application.job.job_type }}</td>
-                                    <td>{{ application.job.job_location }}</td>
-                                    <td>{{ application.job.created_at }}</td>
+                                    <td><a style="text-decoration: none;" href="">{{ application.loan.loan_title }}</a></td>
+                                    <td>{{ application.loan.loan_description }}</td>
+                                    <td>{{ application.loan.created_at | date }}</td>
                                     <td>Reviewing</td>
                                 {% empty %}
-                                    <p>You don't have any job applications yet</p>
-                                
+                                    <p>You don't have any loan applications yet</p>
                             </tr>
                             {% endfor %}
-                            
                         </tbody>
-                        
                     </table>
-                </div> -->
-
+                </div>
         {% endif %}
 
 

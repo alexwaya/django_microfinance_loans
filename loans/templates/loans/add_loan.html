@@ -1,0 +1,46 @@
+{% extends "base_dashboard.html" %}
+{% load static %}
+{% block title %} Add Job - JOB BOARD {% endblock %}
+
+{% block dashboard_content %}
+
+<main>
+    <div class="container-fluid px-4">
+        <h3 class="mt-4"></h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li class="breadcrumb-item active">Add Loan</li>
+            </ol>
+        
+        <div class="card mb-4">
+
+          <div class="card-header">
+              <i class="fas fa-table me-1"></i>
+              Add Loan
+          </div>
+
+          <div class="card-body">
+
+            <form method="post" action=".">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for="" class="form-check-label">Loan Title</label>
+                <input type="text" class="form-control" id="" name="loan_title">
+              </div>
+
+              <div class="mb-3">
+                <label class="form-check-label" for="">Loan Description</label>
+                <textarea class="form-control" name="loan_description"></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+          </div>
+          
+        </div>
+
+    </div>
+</main>
+
+{% endblock dashboard_content %}
