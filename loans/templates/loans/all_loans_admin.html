@@ -54,53 +54,6 @@
                     </table>
                 </div>
         
-        {% else %}
-
-        Is Applicant
-        <div class="card-header">
-            <i class="fas fa-table me-1"></i>
-            My Applications
-        </div>
-                <div class="card-body">
-                    <table id="datatablesSimple">
-                        <thead>
-                            <tr>
-                                <th>Loan Title</th>
-                                <th>Loan Amount</th>
-                                <th>Date Applied</th>
-                                <th>Duration</th>
-                                <th>Total Owed</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tfoot>
-                            <tr>
-                                <th>Loan Title</th>
-                                <th>Loan Amount</th>
-                                <th>Date Applied</th>
-                                <th>Duration</th>
-                                <th>Total Owed</th>
-                                <th>Status</th>
-                            </tr>
-                        </tfoot>
-                        <tbody >
-                            {% for application in request.user.applications.all %}
-                            <tr>
-                                    <td><a style="text-decoration: none;" href="">{{ application.loan.loan_title }}</a></td>
-                                    <td>{{ application.amount_applied }}</td>
-                                    <td>{{ application.created_at | date }}</td>
-
-                                    <td>{{ application.period_applied }}</td>
-                                    <td> TBD </td>
-                                    
-                                    <td>Reviewing</td>
-                                {% empty %}
-                                    <p>You don't have any loan applications yet</p>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
         {% endif %}
 
 
