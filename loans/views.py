@@ -63,13 +63,15 @@ def apply_for_loan(request, loan_id):
 
 
 
-# @login_required
-# def all_loans_admin(request):
-#     loans = Loans.objects.all().order_by('-created_at')
-#     context = {
-#         "loans": loans,
-#     }
-#     return render(request, 'loans/all_loans_admin.html', context)
+@login_required
+def all_applications(request):
+    applications = Application.objects.all().order_by('-created_at')
+    context = {
+        "applications": applications,
+    }
+    return render(request, 'loans/all_applications.html', context)
+
+
 
 
 @login_required
