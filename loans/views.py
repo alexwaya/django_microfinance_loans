@@ -24,8 +24,9 @@ def loan_detail(request, loan_id):
 
 @login_required
 def add_loan(request):
+    form = AddLoanForm(request.POST, request.FILES)
     if request.method == 'POST':
-        form = AddLoanForm(request.POST)
+        
         if form.is_valid():
             loan = form.save(commit=False)
             loan.created_by = request.user
@@ -54,6 +55,7 @@ def apply_for_loan(request, loan_id):
     else:
         form = ApplicationForm()
     context = {
+        "loan": loan,
         "job": loan,
         "form": form,
     }

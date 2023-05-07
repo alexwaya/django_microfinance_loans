@@ -13,6 +13,22 @@
         <link href="{% static 'dashboard/css/styles.css' %}" rel="stylesheet" />
 
         <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+
+
+        <style>
+            /* Chrome, Safari, Edge, Opera */
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+        
+            /* Firefox */
+            input[type=number] {
+              -moz-appearance: textfield;
+            }
+        </style>
+        
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
@@ -37,7 +53,7 @@
             <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
 
                 <li><a class="nav-link" href="/">Home</a></li>
-                <li><a class="nav-link" href="">Browse Jobs</a></li>
+                <li><a class="nav-link" href="{% url 'all_loans' %}">Browse Loans</a></li>
                 <li><a class="nav-link" href="">Notifications ({{ notifications.count }})</a></li>
 
                 <li class="nav-item dropdown">
@@ -95,15 +111,18 @@
                                 </nav>
                             </div> -->
                             {% if request.user.userprofile.is_employer %}
-                            <div class="sb-sidenav-menu-heading">Jobs -> Admin</div>
-                            <a class="nav-link" href="">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Applications
-                            </a>
+                            <div class="sb-sidenav-menu-heading">Loans -> Admin</div>
+
                             <a class="nav-link" href="{% url 'add_loan' %}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Add Loan
                             </a>
+
+                            <a class="nav-link" href="">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Applications
+                            </a>
+                            
                             {% endif %}
                         </div>
                     </div>

@@ -21,19 +21,46 @@
 
           <div class="card-body">
 
-            <form method="post" action=".">
+            <form method="post" action="." enctype="multipart/form-data">
               {% csrf_token %}
-              <div class="mb-3">
-                <label for="" class="form-check-label">Loan Title</label>
-                <input type="text" class="form-control" id="" name="loan_title">
+
+              <div class="row">
+                <div class="col-md-6">
+
+                  <div class="mb-3">
+                    <label for="" class="form-check-label">Loan Title</label>
+                    <input type="text" class="form-control" id="" name="loan_title">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="" class="form-check-label">Interest</label>
+                    <input type="number" class="form-control" id="" name="interest">
+                  </div> <br>
+
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="exampleFormControlFile1">Thumbnail </label>
+                      <input type="file" name="thumbnail" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                  </div>
+  
+                </div>
+
+                <div class="col-md-6">
+
+                  <div class="mb-3">
+                    <label class="form-check-label" for="">Loan Description</label>
+                    <textarea class="form-control" rows="7" name="loan_description"></textarea>
+                  </div>
+
+                </div>
+
               </div>
 
-              <div class="mb-3">
-                <label class="form-check-label" for="">Loan Description</label>
-                <textarea class="form-control" name="loan_description"></textarea>
-              </div>
+                <br>
+              <button type="submit" class="btn btn-warning">Add Loan</button>
+              
 
-              <button type="submit" class="btn btn-primary">Submit</button>
             </form>
 
           </div>

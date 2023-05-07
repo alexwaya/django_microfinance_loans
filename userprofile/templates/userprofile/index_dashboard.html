@@ -28,12 +28,14 @@
                         <thead>
                             <tr>
                                 <th>Loan Title</th>
+                                <th>Interest Rate</th>
                                 <th>Loan Description</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Loan Title</th>
+                                <th>Interest Rate</th>
                                 <th>Loan Description</th>
                             </tr>
                         </tfoot>
@@ -42,6 +44,7 @@
                             {% for loan in request.user.loans.all %}
                             <tr>
                                 <td><a style="text-decoration: none;" href="">{{ loan.loan_title }}</a></td>
+                                <td>{{ loan.interest }}%</td>
                                 <td>{{ loan.loan_description }}</td>
                             {% empty %}
                                     <p>You haven't listed any loans yet</p>

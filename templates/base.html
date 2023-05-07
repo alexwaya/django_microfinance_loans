@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>SHYLOCK MVP</title>
+  <title>Best Time Capital</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -30,6 +30,22 @@
   <!-- Template Main CSS File -->
   <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>  
+
+  <style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -38,7 +54,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="/">Shylock MVP</a></h1>
+      <h1 class="logo"><a href="/">Best Time Capital</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -92,7 +108,7 @@
               <p class="pb-3"><em>Qui repudiandae et eum dolores alias sed ea.</em></p>
               <p>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
-                <strong>Email:</strong> info@example.com<br>
+                <strong>Email:</strong> info@besttimecapital.co.ke<br>
               </p>
             </div>
           </div>
@@ -145,6 +161,8 @@
 
   <!-- Template Main JS File -->
   <script src="{% static 'assets/js/main.js' %}"></script>
+
+  {% block script %} {% endblock script %}
  
 </body>
 

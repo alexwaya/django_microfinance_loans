@@ -5,6 +5,9 @@ class Loans(models.Model):
     loan_title = models.CharField(max_length=255)
     loan_description = models.TextField()
 
+    interest = models.IntegerField()
+    thumbnail = models.ImageField(upload_to ='uploads/')
+
     created_by = models.ForeignKey(User, related_name='loans', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True)
@@ -16,7 +19,11 @@ class Loans(models.Model):
 class Application(models.Model):
     loan = models.ForeignKey(Loans, related_name='applications', on_delete=models.CASCADE)
 
-    apply_reason = models.TextField()
+    #apply_reason = models.TextField()
+
+    amount_applied = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+    period_applied = models.IntegerField(null=True, blank=True)
+    total_applied = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
     created_by = models.ForeignKey(User, related_name='applications', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

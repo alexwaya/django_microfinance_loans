@@ -16,44 +16,99 @@
               <p>Applying</p>
             </div>
     
-            <div class="row">
+            <div class="row" ng-app="myApp" ng-controller="myCtrl" >
     
-              <div class="col-lg-12">
-                <form method="post" role="" class=""> 
+              <div class="col-md-7">
+                <!-- <form method="post" role="" class=""> 
                     
                     {% csrf_token %}
 
                     {{ form.as_p }}
 
-                    <!-- <input type="hidden" value="employer" name="account_type"> -->
-                    <!-- employer -->
-
                     <button>Submit Application</button>
 
-                    <!-- <div class="text-center"><button type="submit">Register</button></div> -->
+                </form> -->
+
+                
 
 
-                  <!-- <div class="row">
-                    <div class="col-md-6 form-group">
-                      <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+              </div>
+
+              <div class="col-md-5">
+                <form method="post" action="." enctype="multipart/form-data">
+                  {% csrf_token %}
+                  
+              
+                <div class="card mb-3" style="padding: 8px 15px;" >
+                  <div class="card-body">
+                    <h5 class="card-title">{{ loan.loan_title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <!-- <a href="#" class="card-link">Loan Term</a> -->
+
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label">Enter Amount</label>
                     </div>
-                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                      <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+
+                    <div class="input-group mb-3">
+                      <span class="input-group-text">KES.</span>
+                      <input type="number" class="form-control" ng-model="amount_applied" name="amount_applied"  min="1" aria-label="Amount (to the nearest Kes.)">
+                      <span class="input-group-text">.00</span>
                     </div>
+
+                    <br>
+
+                    <div class="row">
+                      <div class="d-grid gap-2 col-6 mx-auto"><label for="customRange3" class="form-label">Loan Term</label></div>
+                      <div class="d-grid gap-2 col-6 mx-auto"><button class="btn btn-link btn-sm" type="button" style="text-decoration: none;" disabled> <span ng-bind="months"></span> Month(s)</button></div>
+                    </div>
+                    
+                    <input type="range" class="form-range" min="1" max="12" step="1" id="customRange3" name="period_applied"  ng-model="months" >
+
+                    <br><br> 
+
+                    <input type="number" class="form-control" ng-model="monthly_interest" placeholder="" value="{{ loan.interest }}" hidden >
+
+
+                    <!-- <script>
+                      totals = amount_applied + (amount_applied * (months * (monthly_interest/100)))
+                    </script> -->
+
+
+                    <div class="row">
+                      <div class="d-grid gap-2 col-6 mx-auto"><label for="customRange3" class="form-label">Amount To Be Paid</label></div>
+                      <div class="d-grid gap-2 col-6 mx-auto">
+                        
+                        <button class="btn btn-link btn-sm" type="button" style="text-decoration: none;" disabled>KES. <span ng-model="totals" ng-bind="(amount_applied + (amount_applied * (months * (monthly_interest/100))))"></span> </button>
+                        <!-- <input type="text" disabled> -->
+
+                      </div>
+                    </div>
+
+                    <!-- <p> <span ng-bind="totals" >  </span> {{ totals }} </p>
+
+                    <input type="number" class="form-control" ng-bind="totals" name="total_applied" disabled > -->
+  
+                    <br>
+
+                    <div class="form-check">
+                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                      <label class="form-check-label" for="flexCheckDefault" style="">
+                        By entering into this agreement, I confirm that the information provided herein is truthful to the best of my knowledge.
+                      </label>
+                    </div>
+
+                    <br>
+
+                    <div class="d-grid gap-2">
+                      <button class="btn btn-success btn-primary" type="submit">Apply</button>
+                    </div>
+
                   </div>
-                  <div class="form-group mt-3">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                  </div>
-                  <div class="form-group mt-3">
-                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                  </div>
-                  <div class="my-3">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
-                  </div>
-                  <div class="text-center"><button type="submit">Register</button></div> -->
-                </form>
+                </div>
+
+              </form>
+
               </div>
     
             </div>
@@ -62,6 +117,17 @@
         </section><!-- End Contact Section -->
     
       </main><!-- End #main -->
-    
+
+
+      <script>
+        var app = angular.module('myApp', []);
+        app.controller('myCtrl', function($scope) {
+            $scope.amount_applied= 1;
+            $scope.monthly_interest= {{ loan.interest }};
+            $scope.months= 1;
+            $scope.totals= 1;
+        });
+      </script>
+          
 
  {% endblock content %}

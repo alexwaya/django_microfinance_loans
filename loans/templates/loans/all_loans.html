@@ -2,7 +2,6 @@
 {% load static %}
 {% block title %} All Loans -  {% endblock %}
 
-
 {% block content %}
 
 <main id="main">
@@ -22,7 +21,10 @@
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-bottom: 25px;">
             <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <div class="icon">
+                <!-- <i class="bx bxl-dribbble"></i> -->
+                <img class="img-fluid" src="{{ loan.thumbnail.url }}" alt="" height="100" width="100" >
+              </div>
               <h4><a href="{% url 'loan_detail' loan.id %}">{{ loan.loan_title }}</a></h4>
               <p>{{ loan.loan_description }}</p>
             </div>
@@ -37,6 +39,4 @@
 
   </main><!-- End #main -->
 
-    
-
- {% endblock content %}
+  {% endblock content %}
