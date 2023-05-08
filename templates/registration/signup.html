@@ -1,67 +1,148 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %} Sign Up -  {% endblock %}
-
+{% block title %} Register | Get Quick Loan at Best Time Capital {% endblock %}
 
 {% block content %}
 
-    <main id="main">
+  <!-- ======= Cta Section ======= -->
+  <section id="cta" class="cta" style="margin-top: 70px; font-weight: 700;">
+    <div class="container" data-aos="zoom-in">
 
-        <!-- ======= Contact Section ======= -->
-        <section id="contact" class="contact section-bg" style="margin-top: 70px;">
-          <div class="container" data-aos="fade-up">
-    
-            <div class="section-title">
-              <h2>Register</h2>
-              <p>Sign Up</p>
-            </div>
-    
-            <div class="row">
-    
-              <div class="col-lg-12">
-                <form method="post" role="" class=""> 
-                    
-                    {% csrf_token %}
+      <div class="text-center">
+        <h3 style="font-weight: 700; font-family: 'Poppins', sans-serif;">Register > Best Time Capital</h3>
+        <!-- <p> </p> -->
+      </div>
 
-                    {{ form.as_p }}
-
-                    <input type="hidden" value="jobseeker" name="account_type">
-                    <!-- employer -->
-
-                    <button>Create Account</button>
-
-                    <!-- <div class="text-center"><button jobseeker type="submit">Register</button></div> -->
+    </div>
+  </section><!-- End Cta Section -->
 
 
-                  <!-- <div class="row">
-                    <div class="col-md-6 form-group">
-                      <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" class="contact section-bg" style="padding-bottom: 100px; background-color: #f6f9fd;">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <!-- <h2>Login</h2>
+          <p>Login In Us</p> -->
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3">  </div>
+
+        
+          <div class="col-lg-6">
+
+            <div class="card" style="padding: 15px 15px;">
+              <div class="card-body">
+            
+                <form method="post" role="" class=""> {% csrf_token %}
+
+                  <div class="row">
+                    <div class="col">
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">First Name</label>
+                        <input type="text" class="form-control" name="first_name" id="exampleFormControlInput1" placeholder="">
+                      </div>
                     </div>
-                    <div class="col-md-6 form-group mt-3 mt-md-0">
-                      <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                    <div class="col">
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" name="last_name" id="exampleFormControlInput1" placeholder="">
+                      </div>
                     </div>
                   </div>
-                  <div class="form-group mt-3">
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+
+                 
+
+                  <div class="row">
+                    <div class="col">
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" name="email_id" id="exampleFormControlInput1" placeholder="">
+                      </div>
+                    </div>
                   </div>
-                  <div class="form-group mt-3">
-                    <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+
+                  
+
+                  <div class="row">
+                    <div class="col">
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Phone No.</label>
+                        <input type="text" class="form-control" name="phone_no" id="exampleFormControlInput1" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">National ID</label>
+                        <input type="text" class="form-control" name="id_no" id="exampleFormControlInput1" placeholder="">
+                      </div>
+                    </div>
                   </div>
-                  <div class="my-3">
-                    <div class="loading">Loading</div>
-                    <div class="error-message"></div>
-                    <div class="sent-message">Your message has been sent. Thank you!</div>
+
+                  
+
+                  <div class="row">
+                    <div class="col">
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Username</label>
+                        <input type="text" class="form-control" name="username" id="exampleFormControlInput1" placeholder="">
+                      </div>
+                    </div>
                   </div>
-                  <div class="text-center"><button type="submit">Register</button></div> -->
+
+                  
+
+                  <div class="row">
+                    <div class="col">
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Enter Password</label>
+                        <input type="password" class="form-control" name="password1" id="exampleFormControlInput1" placeholder="">
+                      </div>
+                    </div>
+                    <div class="col">
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Confirm Password</label>
+                        <input type="password" class="form-control" name="password2" id="exampleFormControlInput1" placeholder="">
+                      </div>
+                    </div>
+                  </div>
+
+
+
+                
+                  <!-- 2 column grid layout for inline styling -->
+                  <div class="row mb-4">
+                    <div class="col d-flex justify-content-center">
+                      <!-- Checkbox -->
+                      <!-- <a href="#!">Forgot password?</a> &nbsp;&nbsp;&nbsp; -->
+                      <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+                    </div>
+                  </div>
+
+                  <input type="hidden" value="jobseeker" name="account_type">
+                
+                  <!-- Submit button -->
+                  <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">Register</button>
+                  </div>
+                
                 </form>
-              </div>
-    
-            </div>
-    
-          </div>
-        </section><!-- End Contact Section -->
-    
-      </main><!-- End #main -->
-    
 
- {% endblock content %}
+              </div>
+            </div>
+
+          </div>
+
+
+          <div class="col-lg-3">  </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+
+{% endblock content %}

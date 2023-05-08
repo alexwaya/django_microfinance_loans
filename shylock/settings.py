@@ -43,6 +43,10 @@ INSTALLED_APPS = [
     'userprofile',
 ]
 
+
+AUTH_USER_MODEL = "pages.CustomUser"
+
+
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGOUT_REDIRECT_URL = '/'

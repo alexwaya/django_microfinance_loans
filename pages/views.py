@@ -5,9 +5,7 @@ from django.contrib.auth import login
 from userprofile.models import Userprofile
 from loans.models import Loans
 
-# def index_view(request):
-#     context = {}
-#     return render(request, 'pages/index.html', context)
+from pages.forms import CustomUserCreationForm
 
 def index_view(request):
     loans = Loans.objects.all().order_by('-created_at')[0:3]
@@ -30,7 +28,7 @@ def contact_us(request):
 def signup(request):
     # form = UserCreationForm()
     if request.method == 'POST':
-        form = UserCreationForm(request.POST, request.FILES)
+        form = CustomUserCreationForm(request.POST, request.FILES)
         if form.is_valid():
             user = form.save()
 
@@ -46,7 +44,7 @@ def signup(request):
             login(request, user)
             return redirect('dashboard')
     else:
-        form = UserCreationForm()
+        form = CustomUserCreationForm()
     context = {
         "form": form,
     }
