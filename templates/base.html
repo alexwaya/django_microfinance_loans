@@ -82,7 +82,14 @@
           </li> -->
           <li><a class="nav-link scrollto" href="{% url 'contact_us' %}">CONTACT US</a></li>
           {% if request.user.is_authenticated %}
-          <li><a class="getstarted scrollto" href="{% url 'logout' %}">LOGOUT</a></li>
+
+          <li class="dropdown"><a href="#!"><span>Hi, {{ user.first_name }}</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+              <li><a href="{% url 'logout' %}">Logout</a></li>
+            </ul>
+          </li>
+
           {% else %}
           <li><a class="getstarted scrollto" href="{% url 'login' %}">LOG IN</a></li>
           <li><a class="getstarted scrollto" href="{% url 'signup' %}">SIGN UP</a></li>
