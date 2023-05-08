@@ -5,7 +5,7 @@
 {% block content %}
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" style="height: 90vh;" >
+  <section id="hero" style="height: 75vh;" >
     <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
 
       <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
@@ -16,8 +16,10 @@
         <div class="carousel-item active" style="background-image: url({% static 'assets/img/slide/slide-1.jpg' %})">
           <div class="carousel-container">
             <div class="container">
-              <h2 class="animate__animated animate__fadeInDown">Karibu <span>Shylock MVP</span></h2>
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <h2 class="animate__animated animate__fadeInDown">Karibu <span>Best Capital</span></h2>  
+              <p class="animate__animated animate__fadeInUp">
+                Our vast range of loan plans comes with affordable interests with forward-thinking solutions to ensure fair and affordable repayment plans. Our loan products are set to meet our customers’ needs whether they are individuals, corporates, business entities or groups.
+              </p>
               <a href="{% url 'all_loans' %}" class="btn-get-started animate__animated animate__fadeInUp scrollto">APPLY NOW</a>
             </div>
           </div>
@@ -27,6 +29,62 @@
 
     </div>
   </section><!-- End Hero -->
+
+
+      <!-- ======= Services Section ======= -->
+      <section id="services" class="services" style="">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>Loans</h2>
+            <p>Our Loan Products</p>
+          </div>
+  
+          <div class="row">
+  
+            {% for loan in loans %}
+  
+            <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-bottom: 25px;">
+              <div class="icon-box" style="padding-top: 35px;">
+                <div class="icon">
+                  <!-- <i class="bx bxl-dribbble"></i> -->
+                  <img class="img-fluid" src="{{ loan.thumbnail.url }}" alt="" height="100" width="100" >
+                </div>
+                <h4><a href="{% url 'apply_for_loan' loan.id %}">{{ loan.loan_title }}</a></h4>
+                <p>{{ loan.loan_description }}</p>
+  
+                <div class="d-grid gap-2" style="margin-top: 25px; margin-bottom: -45px; ">
+                  <a class="btn btn-outline-warning" href="{% url 'apply_for_loan' loan.id %}" role="button">Apply Loan</a>
+                </div>
+                
+  
+              </div>
+            </div>
+  
+            {% endfor %}
+  
+          </div>
+  
+        </div>
+      </section><!-- End Services Section -->
+  
+
+        <!-- ======= Cta Section ======= -->
+        <section id="cta" class="cta">
+          <div class="container" data-aos="zoom-in">
+    
+            <div class="text-center">
+              <h3>INQUIRE MORE ABOUT OUR SERVICES</h3>
+              <p> Send us your message here to get in touch with one of our team members.
+                We will try to get back to you within 48 hours. <br> If we don't within that time, 
+                please feel free to use the form again or give us a call </p>
+              <a class="cta-btn" href="{% url 'all_loans' %}">Apply Loan</a> &nbsp;&nbsp;&nbsp;
+              <a class="cta-btn" href="{% url 'contact_us' %}">Get in Touch</a>
+            </div>
+    
+          </div>
+        </section><!-- End Cta Section -->
+    
 
 
 {% endblock content %}

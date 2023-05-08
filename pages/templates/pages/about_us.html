@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} About Us | Get Quick Loan at Best Time Capital {% endblock %}
+
+{% block content %}
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about"  style="margin-top: 70px;">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="section-title">
+            <h2>About</h2>
+            <p>About Us</p>
+          </div>
+  
+          <div class="row content">
+            <div class="col-lg-6">
+              <p>
+                Best Time Capital is a microfinance company in Nairobi that provides working capital solutions to both individuals and Small and Medium Enterprises (SMEs).
+              </p>
+              <ul>
+                <li><i class="ri-check-double-line"></i> Access products designed strictly for your business today.</li>
+                <li><i class="ri-check-double-line"></i> Let us help you find a solution that meets your needs.</li>
+                <li><i class="ri-check-double-line"></i> Our partners work with us because they trust the value of our platform.</li>
+              </ul>
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0">
+              <p>
+                We offer tailor made financial solutions to meet cash flow changes faced by our target clientele, both individuals and SMEs. We are customer focused with a range of loan products custom-made to suit the borrower's needs. Our competitive edge is offering a wide range of financial solutions, timely and at competitive pricing.
+              </p>
+              <a href="{% url 'all_loans' %}" class="btn-learn-more">Apply Loan</a>
+            </div>
+          </div>
+  
+        </div>
+      </section><!-- End About Section -->
+  
+      <!-- ======= Counts Section ======= -->
+      <section id="counts" class="counts">
+        <div class="container" data-aos="fade-up">
+  
+          <div class="row no-gutters">
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <!-- <i class="bi bi-emoji-smile"></i>
+                <span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span> -->
+                <p><strong>Affordable Loans</strong> We provide customers with loans at affordable interest rate to ensure customer satisfaction and business continuity.</p>
+                <!-- <a href="#">Find out more &raquo;</a> -->
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <!-- <i class="bi bi-journal-richtext"></i>
+                <span data-purecounter-start="0" data-purecounter-end="37500" data-purecounter-duration="1" class="purecounter"></span> -->
+                <p><strong>Trustworthy</strong> We have no hidden fees or registration fees. Applications and approvals within 72 hours.</p>
+                <!-- <a href="#!">Find out more &raquo;</a> -->
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <!-- <i class="bi bi-headset"></i> -->
+                <!-- <span data-purecounter-start="0" data-purecounter-end="232000" data-purecounter-duration="1" class="purecounter"></span> -->
+                <p><strong>24/7 Personal Support</strong> We offer in-person service where and when you need it – in the branch, on your phone or online.</p>
+                <!-- <a href="#">Find out more &raquo;</a> -->
+              </div>
+            </div>
+  
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
+              <div class="count-box">
+                <!-- <i class="bi bi-people"></i>
+                <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span> -->
+                <p><strong>Safe & Secure</strong> Our security practices along with a multi-level authentication system has been put in place to authenticate your identity when you access your online account.</p>
+                <!-- <a href="#">Find out more &raquo;</a> -->
+              </div>
+            </div>
+  
+          </div>
+  
+        </div>
+      </section><!-- End Counts Section -->
+  
+
+{% endblock content %}

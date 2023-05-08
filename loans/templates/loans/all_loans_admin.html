@@ -37,6 +37,7 @@
                                 <th>Loan Title</th>
                                 <th>Interest Rate</th>
                                 <th>Loan Description</th>
+                                
                             </tr>
                         </tfoot>
 
@@ -46,6 +47,7 @@
                                 <td><a style="text-decoration: none;" href="">{{ loan.loan_title }}</a></td>
                                 <td>{{ loan.interest }}%</td>
                                 <td>{{ loan.loan_description }}</td>
+                                
                             {% empty %}
                                     <p>You haven't listed any loans yet</p>
                             </tr>
@@ -60,16 +62,6 @@
         </div>
     </div>
 </main>
-
-
-<!-- <script>
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope) {
-        $scope.amount_applied= 1;
-        $scope.monthly_interest= {{ application.loan.interest }};
-        $scope.months= 1;
-    });
-</script> -->
 
 
 

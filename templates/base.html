@@ -6,7 +6,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Best Time Capital</title>
+  <title>{% block title %} {% endblock %}</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -62,7 +62,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
           <li><a class="nav-link scrollto" href="{% url 'all_loans' %}">LOAN PRODUCTS</a></li>
-          <li><a class="nav-link scrollto" href="#!">ABOUT US</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'about_us' %}">ABOUT US</a></li>
           <!-- <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -80,7 +80,7 @@
               <li><a href="#">Drop Down 4</a></li>
             </ul>
           </li> -->
-          <li><a class="nav-link scrollto" href="#!">CONTACT US</a></li>
+          <li><a class="nav-link scrollto" href="{% url 'contact_us' %}">CONTACT US</a></li>
           {% if request.user.is_authenticated %}
           <li><a class="getstarted scrollto" href="{% url 'logout' %}">LOGOUT</a></li>
           {% else %}
@@ -104,30 +104,30 @@
 
           <div class="col-lg-4 col-md-6">
             <div class="footer-info">
-              <h3>SHYLOCK MVP</h3>
-              <p class="pb-3"><em>Qui repudiandae et eum dolores alias sed ea.</em></p>
-              <p>
+              <h3>BEST TIME CAPITAL</h3>
+              <p class="pb-3"><em>Best Time Capital Limited is a micro-finance company in Nairobi Kenya that provides working capital solutions to both Individuals and Small Medium Enterprises (SMEs).</em></p>
+              <!-- <p>
                 <strong>Phone:</strong> +1 5589 55488 55<br>
                 <strong>Email:</strong> info@besttimecapital.co.ke<br>
-              </p>
+              </p> -->
             </div>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Useful Links</h4>
+            <h4>Quick Links</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#!">Quick Link Here</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#!">Quick Link Here</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#!">Quick Link Here</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="/">Home Page</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'about_us' %}">About Us</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'contact_us' %}">Contact Us</a></li>
             </ul>
           </div>
 
           <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Our Services</h4>
+            <h4>Explore More</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#!">Quick Link Here</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#!">Quick Link Here</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#!">Quick Link Here</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'dashboard' %}">My Account</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="{% url 'all_loans' %}">Our Products</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#!">Staff Emails</a></li>
             </ul>
           </div>
 

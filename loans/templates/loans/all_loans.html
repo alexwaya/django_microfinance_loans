@@ -20,13 +20,19 @@
           {% for loan in loans %}
 
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100" style="margin-bottom: 25px;">
-            <div class="icon-box">
+            <div class="icon-box" style="padding-top: 35px;">
               <div class="icon">
                 <!-- <i class="bx bxl-dribbble"></i> -->
                 <img class="img-fluid" src="{{ loan.thumbnail.url }}" alt="" height="100" width="100" >
               </div>
-              <h4><a href="{% url 'loan_detail' loan.id %}">{{ loan.loan_title }}</a></h4>
+              <h4><a href="{% url 'apply_for_loan' loan.id %}">{{ loan.loan_title }}</a></h4>
               <p>{{ loan.loan_description }}</p>
+
+              <div class="d-grid gap-2" style="margin-top: 25px; margin-bottom: -45px; ">
+                <a class="btn btn-outline-warning" href="{% url 'apply_for_loan' loan.id %}" role="button">Apply Loan</a>
+              </div>
+              
+
             </div>
           </div>
 

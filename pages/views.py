@@ -3,10 +3,29 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 
 from userprofile.models import Userprofile
+from loans.models import Loans
+
+# def index_view(request):
+#     context = {}
+#     return render(request, 'pages/index.html', context)
 
 def index_view(request):
-    context = {}
+    loans = Loans.objects.all().order_by('-created_at')[0:3]
+    context = {
+        "loans": loans,
+    }
     return render(request, 'pages/index.html', context)
+
+
+def about_us(request):
+    context = {}
+    return render(request, 'pages/about_us.html', context)
+
+
+def contact_us(request):
+    context = {}
+    return render(request, 'pages/contact_us.html', context)
+
 
 def signup(request):
     # form = UserCreationForm()

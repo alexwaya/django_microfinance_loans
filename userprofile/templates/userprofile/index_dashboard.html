@@ -29,14 +29,28 @@
                             <tr>
                                 <th>Applicant</th>
                                 <th>Loan Applied</th>
-                                <th>Amount Applied</th>
+                                <th>Email Address</th>
+                                <th>Phone No.</th>
+                                <th>National ID</th>
+                                <th>Amount App.</th>
+                                <th>Applied On</th>
+                                <th>Due Date</th>
+                                <th>Amount Due</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                         <tfoot>
                             <tr>
                                 <th>Applicant</th>
                                 <th>Loan Applied</th>
-                                <th>Amount Applied</th>
+                                <th>Email Address</th>
+                                <th>Phone No.</th>
+                                <th>National ID</th>
+                                <th>Amount App.</th>
+                                <th>Applied On</th>
+                                <th>Due Date</th>
+                                <th>Amount Due</th>
+                                <th>Status</th>
                             </tr>
                         </tfoot>
 
@@ -44,8 +58,15 @@
                             {% for application in applications %}
                             <tr>
                                 <td><a style="text-decoration: none;" href="">{{ application.created_by.first_name }} {{ application.created_by.last_name }}</a></td>
-                                <td>{{ application.loan.loan_title }}%</td>
+                                <td>{{ application.loan.loan_title }}</td>
+                                <td>{{ application.created_by.email }}</td>
+                                <td>{{ application.created_by.phone_no }}</td>
+                                <td>{{ application.created_by.id_no }}</td>
                                 <td>{{ application.amount_applied }}</td>
+                                <td>{{ application.created_at | date }}</td>
+                                <td>TBD</td>
+                                <td>TBD</td>
+                                <td>Pending</td>
                             {% empty %}
                                     <p>You haven't listed any loans yet</p>
                             </tr>
