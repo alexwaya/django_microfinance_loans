@@ -135,6 +135,17 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'rbx111.truehost.cloud' #'bhs106.truehost.cloud'  rbx111.truehost.cloud
+EMAIL_USE_TLS = True
+EMAIL_PORT = 465
+
+
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
