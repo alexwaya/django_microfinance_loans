@@ -30,6 +30,7 @@
                                 <th>Loan Title</th>
                                 <th>Interest Rate</th>
                                 <th>Loan Description</th>
+                                <th style="text-align: center;">Action</th>
                             </tr>
                         </thead>
                         <tfoot>
@@ -37,6 +38,7 @@
                                 <th>Loan Title</th>
                                 <th>Interest Rate</th>
                                 <th>Loan Description</th>
+                                <th style="text-align: center;">Action</th>
                                 
                             </tr>
                         </tfoot>
@@ -44,9 +46,13 @@
                         <tbody>
                             {% for loan in request.user.loans.all %}
                             <tr>
-                                <td><a style="text-decoration: none;" href="">{{ loan.loan_title }}</a></td>
+                                <td>{{ loan.loan_title }}</td>
                                 <td>{{ loan.interest }}%</td>
                                 <td>{{ loan.loan_description }}</td>
+                                <td>
+                                    <a href="{% url 'update_loans_admin' loan.id %}"><button type="button" class="btn btn-sm btn-outline-warning" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"> Update </button></a>
+                                    <a href="{% url 'loan_delete_view' loan.id %}"><button type="button" class="btn btn-sm btn-outline-danger" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"> Delete </button></a>
+                                </td>
                                 
                             {% empty %}
                                     <p>You haven't listed any loans yet</p>

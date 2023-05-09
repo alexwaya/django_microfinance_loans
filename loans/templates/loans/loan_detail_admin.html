@@ -1,0 +1,27 @@
+{% extends "base_dashboard.html" %}
+{% load static %}
+{% block title %} Dashboard - JOB BOARD {% endblock %}
+
+{% block dashboard_content %}
+
+<main>
+    <div class="container-fluid px-4" ng-app="myApp" ng-controller="myCtrl">
+        <h3 class="mt-4"></h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="">Dashboard</a></li>
+                <li class="breadcrumb-item active">My Account</li>
+            </ol>
+        
+        <div class="card mb-4">{{ loan.loan_title }}
+
+        
+
+
+        </div>
+
+    </div>
+</main>
+
+
+
+{% endblock dashboard_content %}

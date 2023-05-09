@@ -1,0 +1,82 @@
+{% extends "base_dashboard.html" %}
+{% load static %}
+{% block title %} Add Job - JOB BOARD {% endblock %}
+
+{% block dashboard_content %}
+
+<main>
+    <div class="container-fluid px-4">
+        <h3 class="mt-4"></h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li class="breadcrumb-item active">Add Loan</li>
+            </ol>
+
+
+        
+        <div class="card mb-4">
+
+          <div class="card-header">
+              <i class="fas fa-table me-1"></i>
+              Add Loan
+          </div>
+
+          <div class="card-body">
+
+            <form method="post" action="" enctype="multipart/form-data">
+              {% csrf_token %}
+
+              <div class="row">
+                <div class="col-md-6">
+
+                  <div class="mb-3">
+                    <label for="" class="form-check-label">Loan Title</label>
+                    <input type="text" class="form-control" id=""  name="loan_title" value="{{ loan.loan_title }}">
+                  </div>
+
+                  <div class="mb-3">
+                    <label for="" class="form-check-label">Interest</label>
+                    <input type="number" class="form-control" id="" name="interest" value="{{ loan.interest }}">
+                  </div> <br>
+
+                  <div class="mb-3">
+                    <div class="form-group">
+                      <label for="exampleFormControlFile1">Thumbnail </label>
+                      <input type="file" name="thumbnail" class="form-control-file" id="exampleFormControlFile1" value="{{ loan.thumbnail }}">
+                    </div>
+                  </div>
+  
+                </div>
+
+                <div class="col-md-6">
+
+                  <div class="mb-3">
+                    <label class="form-check-label" for="">Loan Description</label>
+                    <textarea class="form-control" rows="7" name="loan_description" value="{{ loan.loan_description }}">{{ loan.loan_description }}</textarea>
+                    <!-- <input type="text" class="form-control" id="" name="loan_description" value="{{ loan.loan_description }}"> -->
+                  </div>
+
+                </div>
+
+              </div>
+
+                <br>
+
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-success">Update Loan</button>
+                </div>
+
+
+              
+              
+
+            </form>
+
+          </div>
+          
+        </div>
+
+    </div>
+</main>
+
+{% endblock dashboard_content %}

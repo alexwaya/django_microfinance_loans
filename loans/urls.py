@@ -8,4 +8,9 @@ urlpatterns = [
 
     path('dashboard/loans/add/', add_loan, name="add_loan"),
     path('dashboard/loans/all/', all_loans_admin, name="all_loans_admin"),
+
+    path('dashboard/loans/<int:loan_id>/details', loan_detail_admin, name="loan_detail_admin"),
+
+    path('dashboard/loans/<int:id>/update', update_loans_admin, name="update_loans_admin"),
+    path('dashboard/loans/<int:id>/delete', loan_delete_view, name="loan_delete_view"),
 ]

@@ -3,6 +3,8 @@ from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.forms import UserCreationForm
 # from django.contrib.auth import login
 
+from django.shortcuts import (get_object_or_404, render, HttpResponseRedirect)
+
 from .models import Loans, Application
 from .forms import AddLoanForm, ApplicationForm
 
@@ -23,6 +25,60 @@ def loan_detail(request, loan_id):
 
 
 @login_required
+def loan_detail_admin(request, loan_id):
+    context = {}
+    context["loan"] = Loans.objects.get(pk=loan_id)
+    # loan = Loans.objects.get(pk=loan_id)
+    # context = {
+    #     "loan": loan,
+    # }
+    return render(request, 'loans/loan_detail_admin.html', context)
+
+@login_required
+def update_loans_admin(request, id):
+    loan = Loans.objects.get(id=id)
+
+    form = AddLoanForm(request.POST, request.FILES, instance=loan) 
+    if request.method == 'POST':
+        if form.is_valid():
+            formupdate = form.save(commit=False)
+            formupdate.save() 
+            return redirect('all_loans_admin')
+        else:
+            print("------s-s-s-ssssss----")
+            print(form.errors.as_data()) # here you print errors to terminal
+    else:
+        form = AddLoanForm(instance=loan)
+    context = {
+        "loan": loan,
+        "form": form,
+    }
+    return render(request, 'loans/update_loans_admin.html', context)
+
+
+@login_required
+def loan_delete_view(request, id):
+    # dictionary for initial data with
+    # field names as keys
+    context ={}
+ 
+    # fetch the object related to passed id
+    obj = get_object_or_404(Loans, id = id)
+ 
+ 
+    if request.method =="POST":
+        # delete object
+        obj.delete()
+        # after deleting redirect to
+        # home page
+        return redirect('all_loans_admin')
+ 
+    return render(request, "loans/loan_delete_view.html", context)
+
+
+
+
+@login_required
 def add_loan(request):
     form = AddLoanForm(request.POST, request.FILES)
     if request.method == 'POST':
@@ -31,7 +87,7 @@ def add_loan(request):
             loan = form.save(commit=False)
             loan.created_by = request.user
             loan.save()
-            return redirect('dashboard')
+            return redirect('all_loans_admin')
     else:
         form = AddLoanForm()
     context = {
