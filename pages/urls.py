@@ -6,4 +6,6 @@ urlpatterns = [
     path('signup/', signup, name="signup"),
     path('about-us/', about_us, name="about_us"),
     path('contact-us/', contact_us, name="contact_us"),
+
+    path('accounts/<int:id>/user-profile', user_profile, name="user_profile"),
 ]
