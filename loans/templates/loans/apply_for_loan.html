@@ -9,19 +9,17 @@
     <main id="main" style="background-color: #f6f9fd;">
 
 
-
-
-              <!-- ======= Cta Section ======= -->
-              <section id="cta" class="cta" style="margin-top: 70px; font-weight: 700;">
-                <div class="container" data-aos="zoom-in">
-          
-                  <div class="text-center">
-                    <h3 style="font-weight: 700; font-family: 'Poppins', sans-serif;">Loan Application > Best Time Capital</h3>
-                    <!-- <p> </p> -->
-                  </div>
-          
-                </div>
-              </section><!-- End Cta Section -->
+        <!-- ======= Cta Section ======= -->
+        <section id="cta" class="cta" style="margin-top: 70px; font-weight: 700;">
+          <div class="container" data-aos="zoom-in">
+    
+            <div class="text-center">
+              <h3 style="font-weight: 700; font-family: 'Poppins', sans-serif;">Loan Application > Best Time Capital</h3>
+              <!-- <p> </p> -->
+            </div>
+    
+          </div>
+        </section><!-- End Cta Section -->
 
 
 
@@ -37,17 +35,6 @@
             <div class="row" ng-app="myApp" ng-controller="myCtrl" >
     
               <div class="col-md-7">
-                <!-- <form method="post" role="" class=""> 
-                    
-                    {% csrf_token %}
-
-                    {{ form.as_p }}
-
-                    <button>Submit Application</button>
-
-                </form> -->
-
-                
 
 
               </div>
@@ -57,77 +44,70 @@
                   {% csrf_token %}
                   
               
-                <div class="card mb-3" style="padding: 8px 15px;" >
-                  <div class="card-body">
-                    <h5 class="card-title">{{ loan.loan_title }}</h5>
-                    <!-- <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6> -->
-                    <p class="card-text">{{ loan.loan_description }}</p>
-                    <!-- <a href="#" class="card-link">Loan Term</a> -->
+                  <div class="card mb-3" style="padding: 8px 15px;" >
+                    <div class="card-body">
+                      <h5 class="card-title">{{ loan.loan_title }}</h5>
+                      <p class="card-text">{{ loan.loan_description }}</p>
 
-                    <div class="mb-3">
-                      <label for="exampleFormControlInput1" class="form-label">Enter Amount</label>
-                    </div>
-
-                    <div class="input-group mb-3">
-                      <span class="input-group-text">KES.</span>
-                      <input type="number" class="form-control" ng-model="amount_applied" name="amount_applied"  min="1" aria-label="Amount (to the nearest Kes.)">
-                      <span class="input-group-text">.00</span>
-                    </div>
-
-                    <br>
-
-                    <div class="row">
-                      <div class="d-grid gap-2 col-6 mx-auto"><label for="customRange3" class="form-label">Loan Term</label></div>
-                      <div class="d-grid gap-2 col-6 mx-auto"><button class="btn btn-link btn-sm" type="button" style="text-decoration: none;" disabled> <span ng-bind="months"></span> Month(s)</button></div>
-                    </div>
-                    
-                    <input type="range" class="form-range" min="1" max="12" step="1" id="customRange3" name="period_applied"  ng-model="months" >
-
-                    <br><br> 
-
-                    <input type="number" class="form-control" ng-model="monthly_interest" placeholder="" value="{{ loan.interest }}" hidden >
-
-
-                    <!-- <script>
-                      totals = amount_applied + (amount_applied * (months * (monthly_interest/100)))
-                    </script> -->
-
-
-                    <div class="row">
-                      <div class="d-grid gap-2 col-6 mx-auto"><label for="customRange3" class="form-label">Amount To Be Paid</label></div>
-                      <div class="d-grid gap-2 col-6 mx-auto">
-                        
-                        <button class="btn btn-link btn-sm" type="button" style="text-decoration: none;" disabled>KES. <span ng-model="totals" ng-bind="(amount_applied + (amount_applied * (months * (monthly_interest/100))))"></span> </button>
-                        <!-- <input type="text" disabled> -->
-
+                      <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Enter Amount</label>
                       </div>
+
+                      <div class="input-group mb-3">
+                        <span class="input-group-text">KES.</span>
+                        <input type="number" class="form-control" ng-model="amount_applied" name="amount_applied"  min="1" aria-label="Amount (to the nearest Kes.)">
+                        <span class="input-group-text">.00</span>
+                      </div>
+
+                      <br>
+
+                      <div class="row">
+                        <div class="d-grid gap-2 col-6 mx-auto"><label for="customRange3" class="form-label">Loan Term</label></div>
+                        <div class="d-grid gap-2 col-6 mx-auto"><button class="btn btn-link btn-sm" type="button" style="text-decoration: none;" disabled> <span ng-bind="months"></span> Month(s)</button></div>
+                      </div>
+                      
+                      <input type="range" class="form-range" min="1" max="12" step="1" id="customRange3" name="period_applied"  ng-model="months" >
+
+                      <br><br> 
+
+                      <input type="number" class="form-control" ng-model="monthly_interest" placeholder="" value="{{ loan.interest }}" hidden >
+
+                      <div class="row">
+                        <div class="d-grid gap-2 col-6 mx-auto"><label for="customRange3" class="form-label">Amount To Be Paid</label></div>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+
+                          <input type="number" class="form-control" name="total_applied" ng-model="(amount_applied + (amount_applied * (months * (monthly_interest/100))))" readonly>
+                          
+                          <!-- <button class="btn btn-link btn-sm" type="button" style="text-decoration: none;" disabled>KES. 
+
+                            <span ng-model="totals" ng-bind="(amount_applied + (amount_applied * (months * (monthly_interest/100))))"></span> 
+
+                          </button> -->
+
+                        </div>
+                      </div>
+    
+                      <br>
+
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                        <label class="form-check-label" for="flexCheckDefault" style="">
+                          By entering into this agreement, I confirm that the information provided herein is truthful to the best of my knowledge.
+                        </label>
+                      </div>
+
+                      <br>
+
+                      <input type="hidden" id="custId" name="status" value="Pending">
+
+                      <div class="d-grid gap-2">
+                        <button class="btn btn-success btn-primary" type="submit">Apply</button>
+                      </div>
+
                     </div>
-
-                    <!-- <p> <span ng-bind="totals" >  </span> {{ totals }} </p>
-
-                    <input type="number" class="form-control" ng-bind="totals" name="total_applied" disabled > -->
-  
-                    <br>
-
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-                      <label class="form-check-label" for="flexCheckDefault" style="">
-                        By entering into this agreement, I confirm that the information provided herein is truthful to the best of my knowledge.
-                      </label>
-                    </div>
-
-                    <br>
-
-                    <input type="hidden" id="custId" name="status" value="Pending">
-
-                    <div class="d-grid gap-2">
-                      <button class="btn btn-success btn-primary" type="submit">Apply</button>
-                    </div>
-
                   </div>
-                </div>
 
-              </form>
+                </form>
 
               </div>
     

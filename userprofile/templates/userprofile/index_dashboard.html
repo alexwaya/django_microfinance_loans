@@ -65,7 +65,7 @@
                                 <td>{{ application.amount_applied }}</td>
                                 <td>{{ application.created_at | date }}</td>
                                 <td>TBD</td>
-                                <td>TBD</td>
+                                <td>{{ application.total_applied }}</td>
                                 <td>{{ application.status }}</td>
                             {% empty %}
                                     <p>You haven't listed any loans yet</p>
@@ -97,7 +97,7 @@
                                 <th>Loan Amount</th>
                                 <th>Date Applied</th>
                                 <th>Duration</th>
-                                <th>Total Owed</th>
+                                <th>Amount Due</th>
                                 <th>Status</th>
                             </tr>
                         </thead>
@@ -107,19 +107,19 @@
                                 <th>Loan Amount</th>
                                 <th>Date Applied</th>
                                 <th>Duration</th>
-                                <th>Total Owed</th>
+                                <th>Amount Due</th>
                                 <th>Status</th>
                             </tr>
                         </tfoot>
                         <tbody >
                             {% for application in request.user.applications.all %}
                             <tr>
-                                    <td><a style="text-decoration: none;" href="">{{ application.loan.loan_title }}</a></td>
+                                    <td>{{ application.loan.loan_title }}</td>
                                     <td>{{ application.amount_applied }}</td>
                                     <td>{{ application.created_at | date }}</td>
 
                                     <td>{{ application.period_applied }}</td>
-                                    <td> TBD </td>
+                                    <td> {{ application.total_applied }} </td>
                                     
                                     <td>{{ application.status }}</td>
                                 {% empty %}
@@ -135,17 +135,6 @@
         </div>
     </div>
 </main>
-
-
-<!-- <script>
-    var app = angular.module('myApp', []);
-    app.controller('myCtrl', function($scope) {
-        $scope.amount_applied= 1;
-        $scope.monthly_interest= {{ application.loan.interest }};
-        $scope.months= 1;
-    });
-</script> -->
-
 
 
 {% endblock dashboard_content %}
