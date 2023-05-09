@@ -140,7 +140,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'rbx111.truehost.cloud' #'bhs106.truehost.cloud'  rbx111.truehost.cloud
 EMAIL_USE_TLS = True
 EMAIL_PORT = 465
-
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
 
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
