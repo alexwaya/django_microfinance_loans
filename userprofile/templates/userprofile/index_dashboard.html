@@ -57,8 +57,7 @@
                         <tbody>
                             {% for application in applications %}
                             <tr>
-    path('dashboard/loans/<int:loan_id>/details', loan_detail_admin, name="loan_detail_admin"),
-                                <td><a style="text-decoration: none;" href="">{{ application.created_by.first_name }} {{ application.created_by.last_name }}</a></td>
+                                <td><a style="text-decoration: none;" href="{% url 'loan_application_review' application.id %}">{{ application.created_by.first_name }} {{ application.created_by.last_name }}</a></td>
                                 <td>{{ application.loan.loan_title }}</td>
                                 <td>{{ application.created_by.email_id }}</td>
                                 <td>{{ application.created_by.phone_no }}</td>
@@ -67,7 +66,7 @@
                                 <td>{{ application.created_at | date }}</td>
                                 <td>TBD</td>
                                 <td>TBD</td>
-                                <td>Pending</td>
+                                <td>{{ application.status }}</td>
                             {% empty %}
                                     <p>You haven't listed any loans yet</p>
                             </tr>
@@ -122,7 +121,7 @@
                                     <td>{{ application.period_applied }}</td>
                                     <td> TBD </td>
                                     
-                                    <td>Reviewing</td>
+                                    <td>{{ application.status }}</td>
                                 {% empty %}
                                     <p>You don't have any loan applications yet</p>
                             </tr>

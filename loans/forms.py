@@ -22,6 +22,8 @@ class ApplicationForm(forms.ModelForm):
             'amount_applied',
             'period_applied',
             'total_applied',
+
+            'status',
         ]
 
 

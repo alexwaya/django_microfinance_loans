@@ -137,3 +137,25 @@ def all_loans_admin(request):
         }
     return render(request, 'loans/all_loans_admin.html', context)
 
+
+
+@login_required
+def loan_application_review(request, id):
+    application = Application.objects.get(id=id)
+
+    form = ApplicationForm(request.POST, request.FILES, instance=application) 
+    if request.method == 'POST':
+        if form.is_valid():
+            formupdate = form.save(commit=False)
+            formupdate.save() 
+            return redirect('dashboard')
+        else:
+            print("------s-s-s-ssssss----")
+            print(form.errors.as_data()) # here you print errors to terminal
+    else:
+        form = ApplicationForm(instance=application)
+    context = {
+        "application": application,
+        "form": form,
+    }
+    return render(request, 'loans/loan_application_review.html', context)

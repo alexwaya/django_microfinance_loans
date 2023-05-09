@@ -3,6 +3,14 @@ from django.db import models
 
 from pages.models import CustomUser
 
+
+STATUS = (
+    ("Pending","Pending"),
+    ("Approved","Approve"),
+    ("Declined","Decline"),
+)
+
+
 class Loans(models.Model):
     loan_title = models.CharField(max_length=255)
     loan_description = models.TextField()
@@ -26,6 +34,8 @@ class Application(models.Model):
     amount_applied = models.DecimalField(max_digits=10, decimal_places=2)
     period_applied = models.IntegerField(null=True)
     total_applied = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
+
+    status = models.CharField(choices=STATUS, max_length=50, default='Pending')
 
     created_by = models.ForeignKey(CustomUser, related_name='applications', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)

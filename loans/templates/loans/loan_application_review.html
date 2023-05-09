@@ -1,0 +1,134 @@
+{% extends "base_dashboard.html" %}
+{% load static %}
+{% block dashboard_title %} Loan Review - Admin | Get Quick Loan at Best Time Capital {% endblock dashboard_title %}
+
+{% block dashboard_content %}
+
+<main>
+    <div class="container-fluid px-4">
+        <h3 class="mt-4"></h3>
+            <ol class="breadcrumb mb-4">
+                <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Dashboard</a></li>
+                <li class="breadcrumb-item active">Loan Review</li>
+            </ol>
+        
+        <div class="card mb-4">
+
+          <div class="card-header">
+              <i class="fas fa-table me-1"></i>
+              Loan Review
+          </div>
+
+          <div class="card-body">
+
+            <form method="post" action="" enctype="multipart/form-data">
+              {% csrf_token %}
+
+              <div class="row">
+
+                <div class="col-md-6">
+                  <div class="mb-3">
+                    <label for="" class="form-check-label">Applied By</label>
+                    <input type="text" class="form-control" id="" name="" value="{{ application.created_by.first_name }} {{ application.created_by.last_name }}" disabled>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="" class="form-check-label">Loan Applied</label>
+                      <input type="text" class="form-control" id="" name="" value="{{ application.loan.loan_title }}" disabled>
+                    </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div class="col-md-4">
+                    <div class="mb-3">
+                      <label for="" class="form-check-label">National ID</label>
+                      <input type="number" class="form-control" id="" name="" value="{{ application.created_by.id_no }}" disabled>
+                    </div>
+                  </div>
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label for="" class="form-check-label">Email Address</label>
+                    <input type="email" class="form-control" id="" name="" value="{{ application.created_by.email_id }}" disabled>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                      <label for="" class="form-check-label">Phone Number</label>
+                      <input type="text" class="form-control" id="" name="" value="{{ application.created_by.phone_no }}" disabled>
+                    </div>
+                </div>
+
+              </div>
+
+              <div class="row">
+
+                <div class="col-md-4">
+                  <div class="mb-3">
+                    <label for="" class="form-check-label">Amount Applied</label>
+                    <input type="number" class="form-control" id="" name="amount_applied" value="{{ application.amount_applied }}" >
+                  </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                      <label for="" class="form-check-label">Amount Due</label>
+                      <input type="text" class="form-control" id="" name="" value="{{ application.total_applied }}" disabled>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="mb-3">
+                      <label for="" class="form-check-label">Date Due</label>
+                      <input type="text" class="form-control" id="" name="" value="{{ application.total_applied }}" disabled>
+                    </div>
+                </div>
+                
+
+              </div>
+
+              <div class="row">
+
+                <div class="col-md-6">
+                    <div class="mb-3">
+                      <label for="" class="form-check-label">Applied On</label>
+                      <input type="text" class="form-control" id="" name="" value="{{ application.created_at |date:'Y-m-d' }}" disabled>
+                    </div>
+                </div>                
+                <div class="col-md-6">
+                    <div class="mb-3">
+                        <label for="" class="form-check-label" style="font-size: 13px; color:#f58220; font-weight: 600;">Update Loan Review Here</label>
+                      <input type="range" class="form-control" id="" name="period_applied" value="{{ application.period_applied }}" hidden>
+
+                      <select class="form-select" aria-label="Default select example" name="status">
+                        <option selected>Choose Option here</option>
+                        <option value="Approved">Approve</option>
+                        <option value="Declined">Decline</option>
+                      </select>
+
+                    </div>
+                </div>                
+
+              </div>
+
+                <br>
+
+                <input type="number" class="form-control" ng-model="monthly_interest" placeholder="" value="{{ loan.interest }}" hidden >
+
+                <!-- <input type="hidden" id="custId" name="status" value="Pending"> -->
+
+
+              <button type="submit" class="btn btn-warning">Submit Review</button>
+              
+
+            </form>
+
+          </div>
+          
+        </div>
+
+    </div>
+</main>
+
+{% endblock dashboard_content %}

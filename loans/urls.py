@@ -13,4 +13,6 @@ urlpatterns = [
 
     path('dashboard/loans/<int:id>/update', update_loans_admin, name="update_loans_admin"),
     path('dashboard/loans/<int:id>/delete', loan_delete_view, name="loan_delete_view"),
+
+    path('dashboard/loans/<int:id>/review', loan_application_review, name="loan_application_review"),
 ]
