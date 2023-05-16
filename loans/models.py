@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-
+from dateutil.relativedelta import relativedelta
 from pages.models import CustomUser
 
 
@@ -32,7 +32,7 @@ class Application(models.Model):
     #apply_reason = models.TextField()
 
     amount_applied = models.DecimalField(max_digits=10, decimal_places=2)
-    period_applied = models.IntegerField(null=True)
+    period_applied = models.IntegerField(default=1)
     total_applied = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)
 
     status = models.CharField(choices=STATUS, max_length=50, default='Pending')
@@ -42,8 +42,12 @@ class Application(models.Model):
 
     def __str__(self):
         return self.loan.loan_title
+    
+    # def due_date(self):
+    #     return self.objects.all() + relativedelta(months=self.period_applied)
 
-
-
+    @property
+    def cal_date(self):
+        return self.created_at.date() + relativedelta(months=+self.period_applied)
 
 

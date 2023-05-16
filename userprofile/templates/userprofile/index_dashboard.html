@@ -1,5 +1,6 @@
 {% extends "base_dashboard.html" %}
 {% load static %}
+
 {% block dashboard_title %} Dashboard | Get Quick Loan at Best Time Capital {% endblock dashboard_title %}
 
 {% block dashboard_content %}
@@ -97,6 +98,7 @@
                                 <th>Loan Amount</th>
                                 <th>Date Applied</th>
                                 <th>Duration</th>
+                                <th>Due Date</th>
                                 <th>Amount Due</th>
                                 <th>Status</th>
                             </tr>
@@ -107,18 +109,20 @@
                                 <th>Loan Amount</th>
                                 <th>Date Applied</th>
                                 <th>Duration</th>
+                                <th>Due Date</th>
                                 <th>Amount Due</th>
                                 <th>Status</th>
                             </tr>
                         </tfoot>
                         <tbody >
-                            {% for application in request.user.applications.all %}
+                            {% for application in applications %}
                             <tr>
                                     <td>{{ application.loan.loan_title }}</td>
                                     <td>{{ application.amount_applied }}</td>
                                     <td>{{ application.created_at | date }}</td>
 
                                     <td>{{ application.period_applied }}</td>
+                                    <td>{{ application.cal_date }} </td>
                                     <td> {{ application.total_applied }} </td>
                                     
                                     <td>{{ application.status }}</td>
